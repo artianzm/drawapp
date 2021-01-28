@@ -1,13 +1,14 @@
-package com.example.drawingapp;
+package com.example.drawingapp.view;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
+
+import com.example.drawingapp.R;
 
 public class MainActivity extends AppCompatActivity {
 

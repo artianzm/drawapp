@@ -1,4 +1,4 @@
-package com.example.drawingapp;
+package com.example.drawingapp.shapes;
 
 import android.content.Context;
 import android.graphics.Canvas;

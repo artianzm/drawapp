@@ -1,11 +1,13 @@
-package com.example.drawingapp;
+package com.example.drawingapp.shapes;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
 import androidx.annotation.Nullable;
 
-public abstract class Shape extends GraphicElement{
+import com.example.drawingapp.GraphicElement;
+
+public abstract class Shape extends GraphicElement {
 
     public Shape(Context context) {
         super(context);
