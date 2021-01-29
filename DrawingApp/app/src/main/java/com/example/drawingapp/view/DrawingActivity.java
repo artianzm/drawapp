@@ -27,8 +27,10 @@ public class DrawingActivity extends AppCompatActivity {
     private static RelativeLayout relativeLayout;
     private ImageButton drawShapes;
     private ImageButton deleteAll;
+    private ImageButton freeDraw;
     private static DrawingActivityVM drawingActivityVM;
     private static WeakReference<DrawingActivity> drawContext;
+    private GraphicElement graphicElement;
 
 
     public static WeakReference<DrawingActivity> getDrawContext() {
@@ -36,6 +38,7 @@ public class DrawingActivity extends AppCompatActivity {
     }
 
     private static void onClick(View v) {
+        relativeLayout.removeAllViews();
         drawingActivityVM.clearScreen();
     }
 
@@ -57,9 +60,9 @@ public class DrawingActivity extends AppCompatActivity {
         ScreenEditor.setDrawingLayout(relativeLayout);
 
 
-
         drawShapes = findViewById(R.id.imageButton2);
         deleteAll = findViewById(R.id.delete_button);
+        freeDraw = findViewById(R.id.freeDraw);
 
         //enable back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -74,13 +77,15 @@ public class DrawingActivity extends AppCompatActivity {
         });
 
         deleteAll.setOnClickListener(DrawingActivity::onClick);
-        
+        freeDraw.setOnClickListener(this::onClick2);
+
     }
 
 
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();  // go previous activity
+        relativeLayout.removeAllViews();
         return super.onSupportNavigateUp();
     }
 
@@ -102,6 +107,11 @@ public class DrawingActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    private void onClick2(View v) {
+        graphicElement = new GraphicElement(this);
+        relativeLayout.removeView(graphicElement);
+        relativeLayout.addView(graphicElement);
+    }
 }
 
 

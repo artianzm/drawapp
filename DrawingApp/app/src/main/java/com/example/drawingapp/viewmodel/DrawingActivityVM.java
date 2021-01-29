@@ -20,7 +20,9 @@ public class DrawingActivityVM extends ViewModel {
     }
 
     public void clearScreen()  {
+        ScreenEditor.getInstance().getShapeStorage().getShapes().clear();
         ScreenEditor.getInstance().getShapeStorage().removeShapes();
+
     }
 
 }

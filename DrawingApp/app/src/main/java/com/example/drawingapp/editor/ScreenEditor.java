@@ -4,7 +4,6 @@ import android.widget.RelativeLayout;
 
 import com.example.drawingapp.Factory.ShapeFactory;
 import com.example.drawingapp.GraphicElement;
-import com.example.drawingapp.Storage.Screen;
 import com.example.drawingapp.Storage.ShapeStorage;
 import com.example.drawingapp.shapes.Shape;
 import com.example.drawingapp.shapes.ShapeTypes;

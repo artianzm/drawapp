@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -43,11 +44,40 @@ public class GraphicElement extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawBitmap(canvasBitmap, 0, 0, paint);
+        canvas.drawPath(path, paint);
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        boolean value = super.onTouchEvent(event);
+        float x = event.getX();
+        float y = event.getY();
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN: {
+                path.moveTo(x, y);
+                invalidate();
+                return true;
+            }
+            case MotionEvent.ACTION_MOVE: {
+                path.lineTo(x, y);
+                invalidate();
+                return true;
+            }
+
+            case MotionEvent.ACTION_UP: {
+                path.lineTo(x, y);
+                invalidate();
+                return true;
+            }
+        }
+        return value;
     }
 
 

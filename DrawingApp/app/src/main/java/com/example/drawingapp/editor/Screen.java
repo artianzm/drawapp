@@ -1,4 +1,4 @@
-package com.example.drawingapp.Storage;
+package com.example.drawingapp.editor;
 
 import com.example.drawingapp.GraphicElement;
 import com.example.drawingapp.shapes.Shape;
@@ -6,6 +6,7 @@ import com.example.drawingapp.shapes.Shape;
 import java.util.List;
 
 public interface Screen {
+
     void addShapes(String shape);
     void viewElem(List<Shape> shapeList);
     void removeElem(GraphicElement elem);
