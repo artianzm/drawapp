@@ -32,6 +32,11 @@ public class Quadrangle extends Shape {
         invalidate();
     }
 
+    @Override
+    public void changeColor(int color) {
+        getPaint().setColor(color);
+    }
+
 
     public int getLeftQ() {
         return leftQ;

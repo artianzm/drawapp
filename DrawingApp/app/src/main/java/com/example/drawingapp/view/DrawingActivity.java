@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.drawingapp.FreeDraw;
 import com.example.drawingapp.GraphicElement;
 import com.example.drawingapp.R;
 import com.example.drawingapp.editor.ScreenEditor;
@@ -30,7 +31,7 @@ public class DrawingActivity extends AppCompatActivity {
     private ImageButton freeDraw;
     private static DrawingActivityVM drawingActivityVM;
     private static WeakReference<DrawingActivity> drawContext;
-    private GraphicElement graphicElement;
+    private FreeDraw freeDrawings;
 
 
     public static WeakReference<DrawingActivity> getDrawContext() {
@@ -108,9 +109,9 @@ public class DrawingActivity extends AppCompatActivity {
     }
 
     private void onClick2(View v) {
-        graphicElement = new GraphicElement(this);
-        relativeLayout.removeView(graphicElement);
-        relativeLayout.addView(graphicElement);
+        freeDrawings = new FreeDraw(this);
+        relativeLayout.removeView(freeDrawings);
+        relativeLayout.addView(freeDrawings);
     }
 }
 

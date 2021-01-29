@@ -63,4 +63,9 @@ public class Triangle extends Shape {
         canvas.drawPath(path, getPaint());
     }
 
+    @Override
+    public void changeColor(int color) {
+        getPaint().setColor(color);
+    }
+
 }

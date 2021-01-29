@@ -30,6 +30,11 @@ public class Circle extends Shape {
         invalidate();
     }
 
+    @Override
+    public void changeColor(int color) {
+        getPaint().setColor(color);
+    }
+
 
     public int getCircleX() {
         return circleX;

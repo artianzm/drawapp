@@ -31,6 +31,11 @@ public class Line extends Shape {
         canvas.drawLine(getStartPointX(), getStartPointY(), getEndPointX(), getEndPointY(), getPaint());
     }
 
+    @Override
+    public void changeColor(int color) {
+        getPaint().setColor(color);
+    }
+
 
     public int getStartPointX() {
         return startPointX;
