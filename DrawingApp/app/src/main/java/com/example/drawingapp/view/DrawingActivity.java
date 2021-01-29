@@ -19,14 +19,25 @@ import com.example.drawingapp.shapes.Shape;
 import com.example.drawingapp.shapes.ShapeTypes;
 import com.example.drawingapp.viewmodel.DrawingActivityVM;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class DrawingActivity extends AppCompatActivity {
 
-    RelativeLayout relativeLayout;
+    private static RelativeLayout relativeLayout;
     private ImageButton drawShapes;
     private ImageButton deleteAll;
     private static DrawingActivityVM drawingActivityVM;
+    private static WeakReference<DrawingActivity> drawContext;
+
+
+    public static WeakReference<DrawingActivity> getDrawContext() {
+        return drawContext;
+    }
+
+    private static void onClick(View v) {
+        drawingActivityVM.clearScreen();
+    }
 
 
     @Override
@@ -35,13 +46,15 @@ public class DrawingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_drawing);
 
 
+        drawContext = new WeakReference<>(this);
+
+
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         ScreenEditor.getScreenDim(displayMetrics.widthPixels,displayMetrics.heightPixels);
 
-
-        drawingActivityVM = new DrawingActivityVM();
         relativeLayout = findViewById(R.id.graphic_id);
+        ScreenEditor.setDrawingLayout(relativeLayout);
 
 
 
@@ -51,17 +64,17 @@ public class DrawingActivity extends AppCompatActivity {
         //enable back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+
+        drawingActivityVM = new DrawingActivityVM();
         
         drawShapes.setOnClickListener(view -> {
             chooseShapeOnScreenDialog(view);
         });
 
-        deleteAll.setOnClickListener(v -> {
-            relativeLayout.removeAllViews();
-        });
-
-
-
+        deleteAll.setOnClickListener(DrawingActivity::onClick);
+        
     }
 
 
@@ -80,8 +93,7 @@ public class DrawingActivity extends AppCompatActivity {
         alertDialog.setItems(shapesText, (dialog, which) -> {
             for (ShapeTypes s : ShapeTypes.values()) {
                 if (shapesText[which].equals(s.getName())) {
-                    relativeLayout.addView(s.getShape(this));
-                    drawingActivityVM.viewShapes(s.getShape(this));
+                    drawingActivityVM.selectShape(s.getName());
                 }
             }
         });

@@ -3,26 +3,24 @@ package com.example.drawingapp.viewmodel;
 import androidx.lifecycle.ViewModel;
 
 import com.example.drawingapp.Storage.ShapeStorage;
+import com.example.drawingapp.editor.ScreenEditor;
 import com.example.drawingapp.shapes.Shape;
 import com.example.drawingapp.view.DrawingActivity;
 
 public class DrawingActivityVM extends ViewModel {
 
-    private ShapeStorage shapeStorage;
-
     public DrawingActivityVM() {
         super();
-        shapeStorage = new ShapeStorage();
-    }
-
-
-    public void viewShapes(Shape shape) {
-        shapeStorage.addShapes(shape);
-    }
-
-    public void removeShape() {
 
     }
 
+
+    public void selectShape(String shape) {
+        ScreenEditor.getInstance().addShapes(shape);
+    }
+
+    public void clearScreen()  {
+        ScreenEditor.getInstance().getShapeStorage().removeShapes();
+    }
 
 }

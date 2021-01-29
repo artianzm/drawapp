@@ -2,6 +2,12 @@ package com.example.drawingapp.shapes;
 
 import android.content.Context;
 
+import com.example.drawingapp.Factory.CircleFactory;
+import com.example.drawingapp.Factory.LineFactory;
+import com.example.drawingapp.Factory.QuadrangleFactory;
+import com.example.drawingapp.Factory.ShapeFactory;
+import com.example.drawingapp.Factory.TriangleFactory;
+
 public enum ShapeTypes {
 
     CIRCLE {
@@ -14,6 +20,11 @@ public enum ShapeTypes {
         public Shape getShape(Context ctx) {
             return new Circle(ctx);
         }
+
+        @Override
+        public ShapeFactory getShapeFactory() {
+            return new CircleFactory();
+        }
     },
     LINE {
         @Override
@@ -24,6 +35,11 @@ public enum ShapeTypes {
         @Override
         public Shape getShape(Context ctx) {
             return new Line(ctx);
+        }
+
+        @Override
+        public ShapeFactory getShapeFactory() {
+            return new LineFactory();
         }
 
     },
@@ -38,6 +54,11 @@ public enum ShapeTypes {
             return new Triangle(ctx);
         }
 
+        @Override
+        public ShapeFactory getShapeFactory() {
+            return new TriangleFactory();
+        }
+
     },
     QUADRANGLE {
         @Override
@@ -50,9 +71,15 @@ public enum ShapeTypes {
             return new Quadrangle(ctx);
         }
 
+        @Override
+        public ShapeFactory getShapeFactory() {
+            return new QuadrangleFactory();
+        }
+
     };
 
     public abstract String getName();
     public abstract Shape getShape(Context ctx);
 
+    public abstract ShapeFactory getShapeFactory();
 }

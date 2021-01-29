@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 public interface Storage {
 
-    ArrayList<Shape> shapes = new ArrayList<>();
-    ArrayList<Shape> getShapes();
     void addShapes(Shape shape);
     void removeShapes();
 }
