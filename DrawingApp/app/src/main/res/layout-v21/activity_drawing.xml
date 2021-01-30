@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".view.DrawingActivity">
 
+
     <RelativeLayout
         android:id="@+id/graphic_id"
         android:layout_width="match_parent"
@@ -18,7 +19,6 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp">
-
     </RelativeLayout>
 
 
@@ -29,12 +29,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
         android:layout_marginTop="166dp"
         android:contentDescription="create shapes"
         android:tint="#80CBC4"
-        app:srcCompat="@drawable/bubble_chart_black_18dp"
+        app:srcCompat="@drawable/details_24px"
         tools:ignore="VectorDrawableCompat" />
 
     <ImageButton
@@ -44,21 +44,43 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="220dp"
         android:tint="#80CBC4"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
     <ImageButton
+        android:id="@+id/color"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="274dp"
+        android:tint="#80CBC4"
+        app:srcCompat="@drawable/color_lens_24px"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageButton
+        android:id="@+id/stroke_width"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="328dp"
+        android:tint="#80CBC4"
+        app:srcCompat="@drawable/dehaze_24px"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageButton
         android:id="@+id/delete_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginBottom="11dp"
         android:tint="#80CBC4"
         app:srcCompat="@android:drawable/ic_menu_delete" />
